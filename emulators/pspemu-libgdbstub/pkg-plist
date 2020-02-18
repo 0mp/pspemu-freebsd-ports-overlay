@@ -1,0 +1,6 @@
+include/libgdbstub.h
+lib/libgdbstub.a
+lib/libgdbstub.so
+lib/libgdbstub.so.0
+lib/libgdbstub.so.0.0.0
+share/pkgconfig/libgdbstub.pc

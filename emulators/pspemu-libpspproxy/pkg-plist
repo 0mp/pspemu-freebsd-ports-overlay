@@ -1,0 +1,6 @@
+include/libpspproxy.h
+lib/libpspproxy.a
+lib/libpspproxy.so
+lib/libpspproxy.so.0
+lib/libpspproxy.so.0.1.0
+share/pkgconfig/libpspproxy.pc

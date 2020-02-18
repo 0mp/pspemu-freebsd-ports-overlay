@@ -1,0 +1,31 @@
+--- CMakeLists.txt.orig	2020-02-18 10:18:24 UTC
++++ CMakeLists.txt
+@@ -9,8 +9,9 @@ find_package(PkgConfig)
+ find_package(ZLIB REQUIRED)
+ find_library(m REQUIRED)
+ 
++find_package(OpenSSL REQUIRED)
+ pkg_check_modules(PC_LIBPSPPROXY REQUIRED IMPORTED_TARGET libpspproxy)
+-pkg_check_modules(PC_OPENSSL     REQUIRED IMPORTED_TARGET openssl)
++# pkg_check_modules(PC_OPENSSL     REQUIRED IMPORTED_TARGET openssl)
+ 
+ add_executable(PSPEmu
+                       psp-emu.c
+@@ -41,10 +42,13 @@ target_include_directories(PSPEmu PUBLIC
+                            )
+ 
+ target_link_libraries(PSPEmu PkgConfig::PC_LIBPSPPROXY)
+-target_link_libraries(PSPEmu PkgConfig::PC_OPENSSL)
++target_link_libraries(PSPEmu OpenSSL::Crypto)
+ target_link_libraries(PSPEmu ${ZLIB_LIBRARIES})
+-target_link_libraries(PSPEmu ${CMAKE_SOURCE_DIR}/unicorn/libunicorn.a)
+-target_link_libraries(PSPEmu ${CMAKE_SOURCE_DIR}/capstone/libcapstone.a)
+-target_link_libraries(PSPEmu ${CMAKE_SOURCE_DIR}/libgdbstub/libgdbstub.a)
++#target_link_libraries(PSPEmu ${CMAKE_SOURCE_DIR}/unicorn/libunicorn.a)
++#target_link_libraries(PSPEmu ${CMAKE_SOURCE_DIR}/capstone/libcapstone.a)
++#target_link_libraries(PSPEmu ${CMAKE_SOURCE_DIR}/libgdbstub/libgdbstub.a)
++target_link_libraries(PSPEmu ${UNICORN_LIBRARIES})
++target_link_libraries(PSPEmu ${CAPSTONE_LIBRARIES})
++target_link_libraries(PSPEmu ${GDBSTUB_LIBRARIES})
+ target_link_libraries(PSPEmu m)
+ target_link_libraries(PSPEmu ${CMAKE_THREAD_LIBS_INIT})
