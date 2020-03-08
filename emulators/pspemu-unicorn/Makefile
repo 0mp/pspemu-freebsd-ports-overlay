@@ -1,8 +1,8 @@
 # $FreeBSD: head/emulators/unicorn/Makefile 523495 2020-01-18 20:02:00Z antoine $
 
 PORTNAME=	unicorn
-DISTVERSION=	1.0.2-rc1-22
-DISTVERSIONSUFFIX=	-gd893758
+DISTVERSION=	1.0.2-rc1-34
+DISTVERSIONSUFFIX=	-g6e42e0d
 CATEGORIES=	emulators
 
 MAINTAINER=	0mp@FreeBSD.org
